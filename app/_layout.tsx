@@ -1,37 +1,31 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { store } from '@/store/store'
+import { Stack } from 'expo-router'
+import React from 'react'
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
+import { Provider as ReduxProvider } from 'react-redux'
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
-  );
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#6200ee',
+    accent: '#03dac4',
+  },
 }
+
+const App = () => {
+  return (
+    <ReduxProvider store={store}>
+      <PaperProvider theme={theme}>
+        <Stack>
+          <Stack.Screen name="index" options={{ title: 'Todos' }} />
+          <Stack.Screen name="todo/[id]" options={{ headerShown: false }} />
+          <Stack.Screen name="create" options={{ title: 'Create Todo' }} />
+          <Stack.Screen name="edit/[id]" options={{ headerShown: false }} />
+        </Stack>
+      </PaperProvider>
+    </ReduxProvider>
+  )
+}
+
+export default App
