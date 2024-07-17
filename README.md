@@ -1,50 +1,84 @@
-# Welcome to your Expo app 👋
+# Simple Todo App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This README provides instructions for setting up and running this application.
 
-## Get started
+## Prerequisites
 
-1. Install dependencies
+- Node.js (version 18 or newer)
+- npm or Yarn package manager
 
-   ```bash
-   npm install
-   ```
+## Setup
 
-2. Start the app
+1. Clone the repository:
 
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+git clone https://github.com/OlamideSimon/easy-bill.git
+cd easy-bill
 
-## Learn more
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+2. Install dependencies:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```
 
-## Join the community
+npm install
 
-Join our community of developers creating universal apps.
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+or if using Yarn:
+
+```
+
+yarn install
+
+```
+
+## Running the App
+
+1. Start the Expo development server:
+
+```
+
+expo start
+
+```
+
+2. In your terminal you get different options to run the app. You can choose one of the following:
+
+- An iOS or Android simulator
+- Your physical device using the Expo Go app which have to be installed either in the simulator or on your device and then scan the QR code
+- A web browser
+
+## Additional Commands
+
+- To run on iOS simulator:
+
+```
+
+npm run ios
+
+```
+
+- To run on Android simulator:
+
+```
+
+npm run android
+
+```
+
+- To run on web:
+
+```
+
+npm run web
+
+```
+
+## Troubleshooting
+
+If you encounter any issues, try the following:
+
+- Clear the npm cache: `npm cache clean -f`
+- Delete the `node_modules` folder and run `npm install` again
